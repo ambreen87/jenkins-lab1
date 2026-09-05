@@ -43,7 +43,7 @@ pipeline {
         NOTES = "${params.NOTES}"
         TEST = "${params.RUN_TESTS}"      
         DATETIME = "${new Date().format('yyyy-MM-dd HH:mm:ss')}"
-        NUMBER = ""
+        NUMB = ""
     }
     stages {
         stage('Test') {            
@@ -51,7 +51,7 @@ pipeline {
                 script {
                     echo "This is Test stage"
                     echo "You selected ENVIRONMENT is = ${ENV}"
-                    echo "You selected NUMBER is = ${NUMBER}"
+                    echo "You selected NUMBER is = ${NUMB}"
                     echo "You selected  = ${NOTES}"
                     echo "You selected  is = ${TEST}"
                     echo "You selected app is = ${APP_NAME}"
