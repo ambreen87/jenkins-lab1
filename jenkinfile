@@ -56,7 +56,9 @@ pipeline {
                     echo "You selected  is = ${TEST}"
                     echo "You selected app is = ${APP_NAME}"
                     echo "You selected date and time is = ${DATETIME}"
-                    
+                    NUMB = "helo jenkins"
+                    echo "You selected NUMBER is = ${NUMB}"
+                
                 }
             }
         }
@@ -64,6 +66,7 @@ pipeline {
             steps {
                 script {
                     echo "This is exam stage"
+                    echo "You selected NUMBER is = ${NUMB}"
                     
                 }
             }
