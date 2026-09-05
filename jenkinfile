@@ -12,6 +12,22 @@ pipeline {
                     
                 }
             }
+        } 
+        stage('exam') {            
+            steps {
+                script {
+                    echo "This is exam stage"
+                    
+                }
+            }
+        }
+        stage('final') {            
+            steps {
+                script {
+                    echo "This is final stage"
+                    
+                }
+            }
         }
     }
 }
