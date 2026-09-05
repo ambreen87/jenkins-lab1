@@ -43,7 +43,8 @@ pipeline {
         APP_NAME = 'my-app'
         ENV = "${params.ENVIRONMENT}"
         NOTES = "${params.NOTES}"
-        TEST = "${params.RUN_TESTS}"
+        TEST = "${params.RUN_TESTS}"      
+        DATETIME = "${new Date().format('yyyy-MM-dd HH:mm:ss')}"
     }
     stages {
         stage('Test') {            
@@ -54,6 +55,8 @@ pipeline {
                     echo "You selected ENVIRONMENT is = ${params.ENVIRONMENT}"
                     echo "You selected  = ${NOTES}"
                     echo "You selected  is = ${TEST}"
+                    echo "You selected app is = ${APP_NAME}"
+                    echo "You selected date and time is = ${DATETIME}"
                     
                 }
             }
