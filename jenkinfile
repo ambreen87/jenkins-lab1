@@ -39,11 +39,19 @@ pipeline {
             description: 'Run unit tests'
         )
     }
+    environment {
+        APP_NAME = 'my-app'
+        ENV = "${params.ENVIRONMENT}"
+        NOTES = "${params.NOTES}"
+        TEST = "${params.RUN_TESTS}"
+    }
     stages {
         stage('Test') {            
             steps {
                 script {
                     echo "This is Test stage"
+                    echo "You selected ENVIRONMENT is = ${ENV}"
+                    echo "You selected ENVIRONMENT is = ${params.ENVIRONMENT}"
                     
                 }
             }
