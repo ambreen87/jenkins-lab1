@@ -52,10 +52,12 @@ pipeline {
                     echo "This is Test stage"
                     echo "You selected ENVIRONMENT is = ${ENV}"
                     echo "You selected ENVIRONMENT is = ${params.ENVIRONMENT}"
+                    echo "You selected  = ${NOTES}"
+                    echo "You selected  is = ${TEST}"
                     
                 }
             }
-        } 
+        }
         stage('exam') {            
             steps {
                 script {
