@@ -20,6 +20,25 @@ pipeline {
 
         timeout(time: 30, unit: 'MINUTES')
     }
+    parameters {
+        choice(
+            name: 'ENVIRONMENT',
+            choices: ['dev', 'sit', 'bat', 'nft', 'ite', 'prod'],
+            description: 'Environment to deploy to'
+        )
+
+        text(
+            name: 'NOTES',
+            defaultValue: '',
+            description: 'Release notes for this deployment.'
+        )
+
+        booleanParam(
+            name: 'RUN_TESTS',
+            defaultValue: true,
+            description: 'Run unit tests'
+        )
+    }
     stages {
         stage('Test') {            
             steps {
