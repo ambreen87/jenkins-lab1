@@ -74,9 +74,11 @@ pipeline {
                 dir('test-repo') {
                     git branch: 'daily-work', url: 'https://github.com/ambreen87/daily-work.git'
 
-					def configContent  = readFile("${WORKSPACE}/test-repo/${FOLDER_PATH}/daily-practice.txt").trim()
-					echo configContent
+
+
                 }
+				def configContent  = readFile("${WORKSPACE}/test-repo/${FOLDER_PATH}/daily-practice.txt").trim()
+					echo configContent
 
 				
 				
