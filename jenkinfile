@@ -1,9 +1,9 @@
 def ENV_MAP = [
-	"dev": ["AccountID":"12345", "AssumeRole":"dev-role", "folderpath":"dev/dev", "stackprefix":"cloud-dev", "s3bucket":"cloud-dev-s3-bucket"],
-	"sit": ["AccountID":"56374", "AssumeRole":"sit-role", "folderpath":"test/sit", "stackprefix":"cloud-sit", "s3bucket":"cloud-sit-s3-bucket"],
-	"bat": ["AccountID":"94837", "AssumeRole":"bat-role", "folderpath":"test/bat", "stackprefix":"cloud-bat", "s3bucket":"cloud-bat-s3-bucket"],
-	"ite": ["AccountID":"52636", "AssumeRole":"ite-role", "folderpath":"ite/ite", "stackprefix":"cloud-ite", "s3bucket":"cloud-ite-s3-bucket"],
-	"prod": ["AccountID":"74636", "AssumeRole":"prod-prod", "folderpath":"prod/prod", "stackprefix":"cloud-prod", "s3bucket":"cloud-prod-s3-bucket"]
+	"dev": ["AccountID":"12345", "AssumeRole":"dev-role", "folderpath":"config/dev", "stackprefix":"cloud-dev", "s3bucket":"cloud-dev-s3-bucket"],
+	"sit": ["AccountID":"56374", "AssumeRole":"sit-role", "folderpath":"config/sit", "stackprefix":"cloud-sit", "s3bucket":"cloud-sit-s3-bucket"],
+	"bat": ["AccountID":"94837", "AssumeRole":"bat-role", "folderpath":"config/bat", "stackprefix":"cloud-bat", "s3bucket":"cloud-bat-s3-bucket"],
+	"ite": ["AccountID":"52636", "AssumeRole":"ite-role", "folderpath":"config/ite", "stackprefix":"cloud-ite", "s3bucket":"cloud-ite-s3-bucket"],
+	"prod": ["AccountID":"74636", "AssumeRole":"prod-prod", "folderpath":"config/prod", "stackprefix":"cloud-prod", "s3bucket":"cloud-prod-s3-bucket"]
 ]
 pipeline {
     agent any
@@ -73,7 +73,15 @@ pipeline {
                 }
                 dir('test-repo') {
                     git branch: 'daily-work', url: 'https://github.com/ambreen87/daily-work.git'
-                }                
+
+					def configContent  = readFile("${WORKSPACE}/test-repo/${FOLDER_PATH}/daily-practice.txt").trim()
+					echo configContent
+                }
+
+				
+				
+                               
+
             }
         }
         stage('Trigger another-pipeline') {
