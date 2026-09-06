@@ -57,6 +57,45 @@ pipeline {
                 }                
             }
         }
+        stage('Trigger another-pipeline') {
+            steps {
+                script {
+                    echo "Triggering downstream another-pipeline..."
+
+                    def downstreamBuild = build(
+                        job: 'another-pipeline',
+                        wait: true,
+                        propagate: false,
+                        parameters: [
+                            string(
+                                name: 'ENVIRONMENT',
+                                value: params.ENVIRONMENT
+                            ),
+                            string(
+                                name: 'NOTES',
+                                value: params.NOTES
+                            )
+                        ]
+                    )
+
+                    echo "======================================"
+                    echo "Downstream Job: another-pipeline"
+					echo "Downstream data: ${downstreamBuild}"
+                    echo "Build Number: ${downstreamBuild.number}"
+                    echo "Build Result: ${downstreamBuild.result}"
+                    echo "Build URL: ${downstreamBuild.absoluteUrl}"
+                    echo "======================================"
+
+                    if (downstreamBuild.result == 'SUCCESS') {
+                        echo "another-pipeline completed successfully"
+
+                    } else {
+                        echo "another-pipeline failed with status: ${downstreamBuild.result}"
+                        
+                    }
+                }
+            }
+        }
         stage('Test') {            
             steps {
                 script {
