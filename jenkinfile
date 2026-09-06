@@ -80,4 +80,48 @@ pipeline {
             }
         }
     }
+    post {
+
+        // Runs if pipeline succeeds
+        success {
+            echo 'Pipeline completed successfully.'
+        }
+
+        // Runs if pipeline fails
+        failure {
+            echo 'Pipeline failed.'
+        }
+
+        // Runs if pipeline is unstable
+        unstable {
+            echo 'Pipeline is unstable.'
+        }
+
+        // Runs if pipeline is aborted
+        aborted {
+            echo 'Pipeline was aborted.'
+        }
+
+        // Runs regardless of result
+        always {
+            echo "Build result: ${currentBuild.currentResult}"
+            
+        }
+
+        // Runs when result changes from previous build
+        changed {
+            echo 'Build result changed.'
+        }
+
+        // Runs when build succeeds for the first time
+        fixed {
+            echo 'Build is fixed.'
+        }
+
+        // Runs when a previously successful build starts failing
+        regression {
+            echo 'Build has regressed.'
+        }
+    }
+   
 }
