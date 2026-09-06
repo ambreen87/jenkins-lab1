@@ -31,17 +31,13 @@ pipeline {
             description: 'Release notes for this deployment.'
         )
 
-        booleanParam(
-            name: 'RUN_TESTS',
-            defaultValue: true,
-            description: 'Run unit tests'
-        )
+        
     }
     environment {
         APP_NAME = 'my-app'
         ENV = "${params.ENVIRONMENT}"
         NOTES = "${params.NOTES}"
-        TEST = "${params.RUN_TESTS}"      
+        TEST = "new"      
         DATETIME = "${new Date().format('yyyy-MM-dd HH:mm:ss')}"
         NUMB = " "
     }
