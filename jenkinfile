@@ -62,6 +62,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+				script {
                 echo "Checking out source code..."
 				echo "ACC_ID = ${ACC_ID}"
 				echo "ASSUME_ROLE = ${ASSUME_ROLE}"
@@ -79,6 +80,7 @@ pipeline {
                 }
 				def configContent  = readFile("${WORKSPACE}/test-repo/${FOLDER_PATH}/daily-practice.txt").trim()
 					echo configContent
+				}
 
 				
 				
