@@ -52,12 +52,22 @@ pipeline {
         DATETIME = "${new Date().format('yyyy-MM-dd HH:mm:ss')}"
         NUMB = " "
 		ACC_ID = "${ENV_MAP["${ENV}"]["AccountID"]}"
+		ASSUME_ROLE = "${ENV_MAP["${ENV}"]["AssumeRole"]}"
+		FOLDER_PATH = "${ENV_MAP["${ENV}"]["folderpath"]}"
+		STACK_PREF = "${ENV_MAP["${ENV}"]["stackprefix"]}"
+		S3_BUCKET = "${ENV_MAP["${ENV}"]["s3bucket"]}"
+
+
     }
     stages {
         stage('Checkout') {
             steps {
                 echo "Checking out source code..."
 				echo "ACC_ID = ${ACC_ID}"
+				echo "ASSUME_ROLE = ${ASSUME_ROLE}"
+				echo "FOLDER_PATH = ${FOLDER_PATH}"
+				echo "STACK_PREF = ${STACK_PREF}"
+				echo "S3_BUCKET = ${S3_BUCKET}"
                 dir('sample-git-repo') {
                     git branch: 'main', url: 'https://github.com/ambreen87/jenkins-pipeline.git'
                 }
