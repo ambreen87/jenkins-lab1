@@ -43,7 +43,7 @@ pipeline {
         NOTES = "${params.NOTES}"
         TEST = "${params.RUN_TESTS}"      
         DATETIME = "${new Date().format('yyyy-MM-dd HH:mm:ss')}"
-        NUMB = " "
+        NUMB = ""
     }
     stages {
         stage('Test') {            
