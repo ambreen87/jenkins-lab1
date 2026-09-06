@@ -46,6 +46,17 @@ pipeline {
         NUMB = " "
     }
     stages {
+        stage('Checkout') {
+            steps {
+                echo "Checking out source code..."
+                dir('sample-git-repo') {
+                    git branch: 'develop', url: 'https://github.com/nitins-devops/sample-git-repo.git'
+                }
+                dir('test-repo') {
+                    git branch: 'main', url: 'https://github.com/nitins-devops/test-repo.git'
+                }                
+            }
+        }
         stage('Test') {            
             steps {
                 script {
