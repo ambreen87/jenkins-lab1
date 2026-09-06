@@ -50,10 +50,10 @@ pipeline {
             steps {
                 echo "Checking out source code..."
                 dir('sample-git-repo') {
-                    git branch: 'develop', url: 'https://github.com/nitins-devops/sample-git-repo.git'
+                    git branch: 'main', url: 'https://github.com/ambreen87/jenkins-pipeline.git'
                 }
                 dir('test-repo') {
-                    git branch: 'main', url: 'https://github.com/nitins-devops/test-repo.git'
+                    git branch: 'daily-work', url: 'https://github.com/ambreen87/daily-work.git'
                 }                
             }
         }
