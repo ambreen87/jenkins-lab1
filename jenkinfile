@@ -68,11 +68,11 @@ pipeline {
                         propagate: false,
                         parameters: [
                             string(
-                                name: 'ENVIRONMENT',
+                                name: 'cloud',
                                 value: params.ENVIRONMENT
                             ),
                             string(
-                                name: 'NOTES',
+                                name: 'aws',
                                 value: params.NOTES
                             )
                         ]
