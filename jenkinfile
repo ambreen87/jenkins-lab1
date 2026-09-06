@@ -20,13 +20,13 @@ pipeline {
     }
     parameters {
         choice(
-            name: 'ENVIRONMENT',
+            name: 'cloud',
             choices: ['dev', 'sit', 'bat', 'nft', 'ite', 'prod'],
             description: 'Environment to deploy to'
         )
 
         text(
-            name: 'NOTES',
+            name: 'aws',
             defaultValue: '',
             description: 'Release notes for this deployment.'
         )
@@ -35,8 +35,8 @@ pipeline {
     }
     environment {
         APP_NAME = 'my-app'
-        ENV = "${params.ENVIRONMENT}"
-        NOTES = "${params.NOTES}"
+        ENV = "${params.cloud}"
+        NOTES = "${params.aws}"
         TEST = "new"      
         DATETIME = "${new Date().format('yyyy-MM-dd HH:mm:ss')}"
         NUMB = " "
