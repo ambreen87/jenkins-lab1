@@ -89,6 +89,16 @@ def CLOUD_ENV_MAP = [
                 cleanWs()
             }
         }
+        stage('Checkout') {
+    steps {
+        echo "Checking out source code..."
+
+        dir('self-testing-project') {
+            git branch: 'self-testing-2',
+                url: 'https://github.com/ambreen87/jenkins-lab1.git'
+        }
+    }
+}
           
 
         stage('Show Selection') {
