@@ -50,15 +50,7 @@ pipeline {
                 }
                 dir('test-repo') {
                     git branch: 'daily-work',credentialsId: 'github-push', url: 'https://github.com/ambreen87/daily-work.git'
-                }                
-            }
-        }
-        stage('update-git') {
-            steps {
-                echo "updating the source code..."
-                
-                dir('test-repo') {
-                    bat '''
+					bat '''
 							git config --global user.email "amberambreen01@gmail.com"
 							git config --global user.name "ambreen87"
 				            git checkout daily-work
@@ -69,6 +61,13 @@ pipeline {
 					        git push -u origin daily-work
 					    '''
                 }                
+            }
+        }
+        stage('update-git') {
+            steps {
+                echo "updating the source code..."
+                
+               
             }
         }
         stage('Test') {            
