@@ -55,9 +55,7 @@ def CLOUD_ENV_MAP = [
         // Stop the pipeline after 25 minutes
         timeout(time: 25, unit: 'MINUTES')
     }
-    triggers {
-        cron('* * * * *')
-    }
+    
     parameters {
 
         choice(
