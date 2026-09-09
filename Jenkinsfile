@@ -108,8 +108,4 @@ def CLOUD_ENV_MAP = [
     }
 }
     }
-
-    
-        
-    
-
+}    
