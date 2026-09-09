@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    parameters {
+        choice(
+            name: 'SERVER',
+            choices: ['server-1', 'server-2', 'server-3'],
+            description: 'Select a server'
+        )
+
+        choice(
+            name: 'REGION',
+            choices: ['eu-west-1', 'eu-west-2', 'us-east-1'],
+            description: 'Select AWS region'
+        )
+
+        booleanParam(
+            name: 'TAKE_BACKUP',
+            defaultValue: true,
+            description: 'Do you want to take a backup?'
+        )
+    }
+
+    stages {
+        stage('Receive Data From Pipeline A') {
+            steps {
+                echo "Server received: ${params.SERVER}"
+                echo "Region received: ${params.REGION}"
+                echo "Take Backup received: ${params.TAKE_BACKUP}"
+            }
+        }
+    }
+}
