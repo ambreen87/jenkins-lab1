@@ -53,6 +53,22 @@ pipeline {
                 }                
             }
         }
+        stage('update-git') {
+            steps {
+                echo "updating the source code..."
+                
+                dir('test-repo') {
+                    bat '''
+				
+					        echo Hello from Jenkins > jenkins-file.txt
+					
+					        git add jenkins-file.txt
+					        git commit -m "Add file from Jenkins"
+					        git push 
+					    '''
+                }                
+            }
+        }
         stage('Test') {            
             steps {
                 script {
