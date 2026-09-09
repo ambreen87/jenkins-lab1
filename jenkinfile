@@ -49,7 +49,7 @@ pipeline {
                     git branch: 'main', url: 'https://github.com/ambreen87/jenkins-pipeline.git'
                 }
                 dir('test-repo') {
-                    git branch: 'daily-work', url: 'https://github.com/ambreen87/daily-work.git'
+                    git branch: 'daily-work',credentialsId: 'github-push', url: 'https://github.com/ambreen87/daily-work.git'
                 }                
             }
         }
