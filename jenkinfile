@@ -59,6 +59,8 @@ pipeline {
                 
                 dir('test-repo') {
                     bat '''
+							git config --global user.email "amberambreen01@gmail.com"
+							git config --global user.name "ambreen87"
 				
 					        echo Hello from Jenkins > jenkins-file.txt
 					
