@@ -61,12 +61,12 @@ pipeline {
                     bat '''
 							git config --global user.email "amberambreen01@gmail.com"
 							git config --global user.name "ambreen87"
-				
+				            git checkout daily-work
 					        echo Hello from Jenkins > jenkins-file.txt
 					
 					        git add jenkins-file.txt
 					        git commit -m "Add file from Jenkins"
-					        git push --set-upstream origin daily-work
+					        git push -u origin daily-work
 					    '''
                 }                
             }
