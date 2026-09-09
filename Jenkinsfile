@@ -94,7 +94,7 @@ def CLOUD_ENV_MAP = [
         echo "Checking out source code..."
 
         dir('self-testing-project') {
-            git branch: 'self-testing-2',
+            git branch: 'self-testing2',
                 url: 'https://github.com/ambreen87/jenkins-lab1.git'
         }
     }
