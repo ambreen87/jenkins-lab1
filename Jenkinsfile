@@ -151,7 +151,7 @@ def CLOUD_ENV_MAP = [
         }
     }
 }
-            post {
+post {
 
     always {
         echo "This post action always runs"
@@ -177,7 +177,4 @@ def CLOUD_ENV_MAP = [
         echo "Pipeline result changed from the previous build"
     }
 }
-                
-                
-    }
-}    
+}
