@@ -151,6 +151,7 @@ def CLOUD_ENV_MAP = [
         }
     }
 }
+    }
 post {
 
     always {
