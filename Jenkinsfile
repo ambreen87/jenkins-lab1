@@ -123,7 +123,23 @@ def CLOUD_ENV_MAP = [
                 job: 'restart-application',
                 wait: true,
                 propagate: false
-            )
+            ,
+               parameters: [
+                    string(
+                        name: 'SERVER',
+                        value: params.SERVER
+                    ),
+
+                    string(
+                        name: 'REGION',
+                        value: params.REGION
+                    ),
+
+                    booleanParam(
+                        name: 'TAKE_BACKUP',
+                        value: params.TAKE_BACKUP
+                    )
+                ]
 
             echo "Restart Pipeline Result: ${restartBuild.result}"
 
@@ -133,6 +149,32 @@ def CLOUD_ENV_MAP = [
                 echo "Restart application failed"
             }
         }
+    }
+}
+            post {
+
+    always {
+        echo "This post action always runs"
+    }
+
+    success {
+        echo "Pipeline completed successfully"
+    }
+
+    failure {
+        echo "Pipeline failed"
+    }
+
+    unstable {
+        echo "Pipeline is unstable"
+    }
+
+    aborted {
+        echo "Pipeline was aborted"
+    }
+
+    changed {
+        echo "Pipeline result changed from the previous build"
     }
 }
                 
