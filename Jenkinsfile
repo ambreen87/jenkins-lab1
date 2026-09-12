@@ -115,5 +115,27 @@ def CLOUD_ENV_MAP = [
         echo "Take Backup: ${params.TAKE_BACKUP}"
     }
 }
+        stage("call restart application"){
+            steps {
+                script{
+                echo "calling restart application pipeline"
+                def restartBuild = build(
+                job: 'restart-application',
+                wait: true,
+                propagate: false
+            )
+
+            echo "Restart Pipeline Result: ${restartBuild.result}"
+
+            if (restartBuild.result == 'SUCCESS') {
+                echo "Restart application completed successfully"
+            } else {
+                echo "Restart application failed"
+            }
+        }
+    }
+}
+                
+                
     }
 }    
