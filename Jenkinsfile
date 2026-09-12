@@ -140,7 +140,7 @@ def CLOUD_ENV_MAP = [
                         value: params.TAKE_BACKUP
                     )
                 ]
-
+             )
             echo "Restart Pipeline Result: ${restartBuild.result}"
 
             if (restartBuild.result == 'SUCCESS') {
