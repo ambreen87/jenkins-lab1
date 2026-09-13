@@ -1,3 +1,5 @@
+@Library('jenkins-shared-lib') _
+
 def CLOUD_ENV_MAP = [
     "dev": [
         "AccountID": "11111",
@@ -99,6 +101,14 @@ def CLOUD_ENV_MAP = [
         }
     }
 }
+           
+        stage('Restart Application') {
+            steps {
+                restartApplication()
+            }
+        }
+    }
+} 
           
 
         stage('Show Selection') {
