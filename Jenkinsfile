@@ -1,4 +1,4 @@
-@Library('jenkins-shared-lib') _
+@Library('Jenkins-shared-lib') _
 
 def CLOUD_ENV_MAP = [
     "dev": [
