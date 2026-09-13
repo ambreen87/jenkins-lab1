@@ -107,10 +107,6 @@ def CLOUD_ENV_MAP = [
                 restartApplication()
             }
         }
-    }
-} 
-          
-
         stage('Show Selection') {
 
         steps {
